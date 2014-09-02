@@ -1,0 +1,36 @@
+#:kivy 1.8.0
+
+#:import random random
+
+
+<RootWidget>:
+	RelativeLayout:
+		canvas:
+			Color:
+				rgba: [random.random(), random.random(), random.random()] + [1]
+			Line:
+				points: [200,50,  70,70,  70,150,  120,200,  200,200]
+			Point:
+				points: [200,50,  70,70,  70,150,  120,200,  200,200]
+				pointsize: 3
+
+	RelativeLayout:
+		canvas:
+			Color:
+				rgba: [random.random(), random.random(), random.random()] + [1]
+			Bezier:
+				points: [200,50,  70,70,  70,150,  120,200,  200,200]
+			Point:
+				points: [200,50,  70,70,  70,150,  120,200,  200,200]
+				pointsize: 3
+
+	RelativeLayout:
+		canvas:
+			Color:
+				rgba: [random.random(), random.random(), random.random()] + [1]
+			Bezier:
+				points: [200,50,  70,70,  70,150,  120,200,  200,200]
+				segments: 100
+			Point:
+				points: [200,50,  70,70,  70,150,  120,200,  200,200]
+				pointsize: 3

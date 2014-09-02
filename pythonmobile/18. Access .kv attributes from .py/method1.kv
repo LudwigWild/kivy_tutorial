@@ -1,0 +1,32 @@
+#:kivy 1.8.0
+
+<RootWidget>:
+	orientation: 'vertical'
+
+	BoxLayout:
+		Label:
+			id: my_label1
+			text: "First text."
+			color: [0.4, 0.5, 0.6, 1]	
+	
+		Label:
+			id: my_label2
+			text: "Second text."
+			color: [0.4, 0.5, 0.6, 1]
+
+		Label:
+			id: my_label3
+			text: "Third text."
+			color: [0.4, 0.5, 0.6, 1]	
+
+		Label:
+			id: my_label4
+			text: "Fourth text."
+			color: [0.4, 0.5, 0.6, 1]	
+
+	Button:
+		text: "Change Color"
+		size_hint: [0.2, 0.2]
+		pos_hint: {'center_x': 0.5}
+
+		on_press: root.change_rectangle_color(*args)

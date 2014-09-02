@@ -1,0 +1,28 @@
+#:kivy 1.8.0
+
+<RootWidget>:
+	orientation: 'vertical'
+
+	BoxLayout:
+		Label:
+			text: "First text."
+			color: root.random_color
+	
+		Label:
+			text: "Second text."
+			color: root.random_color
+
+		Label:
+			text: "Third text."
+			color: root.random_color
+
+		Label:
+			text: "Fourth text."
+			color: root.random_color	
+
+	Button:
+		text: "Change Color"
+		size_hint: [0.2, 0.2]
+		pos_hint: {'center_x': 0.5}
+
+		on_press: root.change_color(*args)

@@ -1,0 +1,58 @@
+#:kivy 1.8.0
+
+#:import random random
+
+
+<RootWidget>:
+	cols: 3
+
+	RelativeLayout:
+		canvas:
+			Color:
+				rgba: [random.random(), random.random(), random.random()] + [1]
+			Line:
+				points: [50,200,  100,100,  150,70,  200,120]
+
+	RelativeLayout:
+		canvas:
+			Color:
+				rgba: [random.random(), random.random(), random.random()] + [1]
+			Line:
+				points: [50,200,  100,100,  150,70,  200,120]
+				width: 10
+
+	RelativeLayout:
+		canvas:
+			Color:
+				rgba: [random.random(), random.random(), random.random()] + [1]
+			Line:
+				points: [50,200,  100,100,  150,70,  200,120]
+				close: True
+
+	RelativeLayout:
+		canvas:
+			Color:
+				rgba: [random.random(), random.random(), random.random()] + [1]
+			Line:
+				points: [50,200,  100,100,  150,70,  200,120]
+				dash_offset: 20
+				dash_length: 20
+
+	RelativeLayout:
+		canvas:
+			Color:
+				rgba: [random.random(), random.random(), random.random()] + [1]
+			Line:
+				points: [50,200,  100,100,  150,70,  200,120]
+				width: 30
+				cap: 'square'
+
+	RelativeLayout:
+		canvas:
+			Color:
+				rgba: [random.random(), random.random(), random.random()] + [1]
+			Line:
+				points: [50,200,  100,100,  150,70,  200,120]
+				width: 30
+				cap: 'round'
+				joint: 'miter'

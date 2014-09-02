@@ -1,0 +1,70 @@
+#:kivy 1.8.0
+
+<RootWidget>:
+	Widget:
+		canvas:
+			Color:
+				rgba: [0.4, 0.4, 0.6, 1]
+			Rectangle:
+				pos: self.pos
+				size: self.size
+
+
+	# In a RelativeLayout, each child and canvas draws are positionned
+	# relatively to the layout.
+	#
+	# The default position coordinates of the child widgets and canvas draws
+	# are [0, 0] (lower-left corner of the layout).
+
+	RelativeLayout:
+		canvas:
+			Color:
+				rgba: [0.7, 0.7, 0.7, 1]
+			Rectangle:
+				size: self.size
+		Button:
+			text: "RelativeLayout\npos_hint: {'center_x': 0.5, 'top': 0.7}"
+			font_size: 10
+			size_hint: [0.6, 0.1]
+			pos_hint: {'center_x': 0.5, 'top': 0.7}
+		Button:
+			text: "RelativeLayout\npos: [10, 50]"
+			font_size: 10
+			size_hint: [None, None]
+			size: [root.width/7, root.height/7]
+			pos: [10, 100]
+			
+			# 'root.' accesses to the root widget, in thise case: MyWidget.
+			# Therefore, 'root.width' and 'root.height' are the dimensions
+			# of MyWidget (the dimensions of the application Window).
+
+
+	# A FloatLayout has exactly the same comportment as a RelativeLayout
+	# as long as you position your child widgets relatively using 'pos_hint'.
+	#
+	# The difference between these two layouts is that if you use the absolute
+	# positioning ('pos') for the child widgets in a FloatLayout, the origin of
+	# the coordinates will be the lower-left corner of the root widget (instead
+	# of the lower-left corner of the layout as in a RelativeLayout).
+	#
+	# The default position coordinates of the child widgets are [0, 0] (lower-left
+	# corner of the root widget).
+
+	FloatLayout:
+		canvas:
+			Color:
+				rgba: [0.1, 0.7, 0.7, 1]
+			Rectangle:
+				pos: self.pos
+				size: self.size
+		Button:
+			text: "FloatLayout\npos_hint: {'center_x': 0.5, 'top': 0.7}"
+			font_size: 10
+			size_hint: [0.6, 0.1]
+			pos_hint: {'center_x': 0.5, 'top': 0.7}
+		Button:
+			text: "FloatLayout\npos: [10, 50]"
+			font_size: 10
+			size_hint: [None, None]
+			size: [root.width/7, root.height/7]
+			pos: [10, 100]

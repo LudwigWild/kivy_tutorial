@@ -1,0 +1,72 @@
+#:kivy 1.8.0
+
+################################## classes ##################################
+
+<Ball>:
+	size_hint: [None, 0.06]
+	width: self.height	# width = height = 5% * window_height
+
+	canvas:
+		Color:
+			rgb: [0, 1, 1]
+		Ellipse:
+			size: self.size
+			pos: self.pos
+
+<Racket>:
+	size_hint: [0.04, 0.25]
+
+	canvas:
+		Color:
+			rgb: [0, 1, 0]
+		Rectangle:
+			size: self.size
+			pos: self.pos
+
+<Score@Label>:
+	text: "0"
+	color: [1, 1, 1, 0.7]
+	font_size: 0.7 * self.height
+
+################################## root widget ##################################
+
+<PongGame>:
+	score_left: score_left
+	score_right: score_right
+	racket_left: racket_left
+	racket_right: racket_right
+	ball: ball
+
+	AnchorLayout:
+		anchor_x: 'center'
+		anchor_y: 'top'
+		
+		BoxLayout:
+			size_hint: [0.75, 0.15]
+
+			Score:
+				id: score_left
+
+			Score:
+				id: score_right
+
+	AnchorLayout:
+		anchor_x: 'left'
+		anchor_y: 'center'
+
+		Racket:
+			id: racket_left
+
+	AnchorLayout:
+		anchor_x: 'right'
+		anchor_y: 'center'
+
+		Racket:
+			id: racket_right
+
+	AnchorLayout:
+		anchor_x: 'center'
+		anchor_y: 'center'
+
+		Ball:
+			id: ball

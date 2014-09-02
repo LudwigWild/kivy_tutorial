@@ -1,0 +1,37 @@
+#:kivy 1.8.0
+
+#:import random random
+
+
+<RootWidget>:
+	RelativeLayout:
+		canvas:
+			Color:
+				rgba: [random.random(), random.random(), random.random()] + [1]
+			Point:
+				points: [200,50,  70,70,  70,150,  120,200]
+				pointsize: 3
+			Point:
+				points: [50,200,  100,100,  150,70,  200,120]
+			Color:
+				rgba: [random.random(), random.random(), random.random()] + [1]
+			Quad:
+				points: [50,60,  110,70,  110,30,  40,30]
+
+
+	RelativeLayout:
+		canvas:
+			Color:
+				rgba: [1, 1, 1, 1]
+			Rectangle:
+				size: self.size
+
+			Color:
+				rgba: [random.random(), random.random(), random.random()] + [1]
+			Triangle:
+				points: [50,60,  200,170,  210,40]
+			Color:
+				rgba: [random.random(), random.random(), random.random()] + [1]
+			Point:
+				points: [200,50,  70,70,  70,150,  120,200]
+				pointsize: 3

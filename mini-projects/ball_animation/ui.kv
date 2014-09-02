@@ -1,0 +1,38 @@
+#:kivy 1.8.0
+
+<Ball@Widget>:
+	size_hint: [None, None]
+	size: [50, 50]
+
+	canvas:
+		Color:
+			rgba: [0.4, 0.4, 0.7, 1]
+		Rectangle:
+			size: self.size
+			pos: self.pos
+
+<RootWidget>:
+	ball: ball
+
+	canvas:
+		Color:
+			rgba: self.randomized_color 
+		Rectangle:
+			size: self.size
+
+	AnchorLayout:
+		anchor_x: 'center'
+		anchor_y: 'bottom'
+
+		Button:
+			text: "Start Animation"
+			font_size: 15
+			size_hint: [None, None]
+			size: (self.texture_size[0] + 20, self.texture_size[1] + 20)
+			
+			on_press: root.start_ball_animation()
+
+	Ball:
+		id: ball
+		center: root.center
+		

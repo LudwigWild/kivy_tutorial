@@ -1,0 +1,22 @@
+#:kivy 1.8.0
+
+<RootWidget>
+	orientation: 'vertical'
+
+	Button:
+		text: "Button 1"
+		on_press: print("B1 pressed")
+		pos_hint: {'x': 0.1}
+		size_hint: [0.2, 1]
+
+	Button:
+		text: "Button 2"
+		on_press: print("B2 pressed")
+		pos_hint: {'center_x': 0.3}
+		size_hint: [0.2, 2]
+
+	Button:
+		text: "Button 3"
+		on_press: print("B3 pressed")
+		pos_hint: {'right': 1}
+		size_hint: [0.4, 1]

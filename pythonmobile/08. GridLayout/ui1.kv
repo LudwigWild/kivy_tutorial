@@ -1,0 +1,57 @@
+#:kivy 1.8.0
+
+<RootWidget>:
+	# GridLayout is similar to the StackLayout 'lr-tb' orientation, but it arranges
+	# the widgets as a matrix : each widget within a same row will have the same height
+	# and each widget within the same column will have the same width.
+	# Unlike the StackLayout where you can size widgets with different heights within
+	# a same row or different widths within a same column, you can't do this with a
+	# GridLayout : if you manually size some of the widgets so that they break the
+	# row/height-column/width rule, they will be forcefully resized so that all their
+	# edges are aligned to obtain a matrix pattern.
+	#
+	# You have to either set a 'rows' amount or a 'cols' (columns) amount, so that the
+	# layout automatically arranges the widgets within these limitations, by adding
+	# respectively either new columns or new rows.
+	cols: 2
+	spacing: 10
+	padding: [20, 0]
+
+	Button:
+		text: 'Button 1'
+		size_hint: [0.33, 0.33]
+
+	Button:
+		text: 'Button 2'
+		size_hint: [0.2, 0.4]
+
+	Button:
+		text: 'Button 3'
+		size_hint: [0.4, 0.2]
+
+	Button:
+		text: 'Button 4'
+		size_hint: [0.33, 0.33]
+
+	Button:
+		text: 'Button 5'
+		size_hint: [None, 0.2]
+		width: 100
+
+	Button:
+		text: 'Button 6'
+		size_hint: [0.2, 0.33]
+
+	Button:
+		text: 'Button 7'
+		size_hint: [0.5, 0.2]
+
+	Button:
+		text: 'Button 8'
+		size_hint: [0.1, None]
+		height: 90
+
+	Button:
+		text: 'Button 9'
+		size_hint: [None, None]
+		size: [60, 40]

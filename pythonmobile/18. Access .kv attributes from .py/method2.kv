@@ -1,0 +1,41 @@
+#:kivy 1.8.0
+
+<RootWidget>:
+	orientation: 'vertical'
+
+	# Adding references just after the root widget, to the different ids used in the
+	# child widgets, allows us to access the objects from the .py file by using
+	# self.<reference_to_id> instead of self.ids['<id>'].
+
+	my_label1: my_label1
+	my_label2: my_label2
+	my_label3: my_label3
+	my_label4: my_label4
+
+	BoxLayout:
+		Label:
+			id: my_label1
+			text: "First text."
+			color: [0.4, 0.5, 0.6, 1]	
+	
+		Label:
+			id: my_label2
+			text: "Second text."
+			color: [0.4, 0.5, 0.6, 1]
+
+		Label:
+			id: my_label3
+			text: "Third text."
+			color: [0.4, 0.5, 0.6, 1]	
+
+		Label:
+			id: my_label4
+			text: "Fourth text."
+			color: [0.4, 0.5, 0.6, 1]	
+
+	Button:
+		text: "Change Color"
+		size_hint: [0.2, 0.2]
+		pos_hint: {'center_x': 0.5}
+
+		on_press: root.change_rectangle_color(*args)

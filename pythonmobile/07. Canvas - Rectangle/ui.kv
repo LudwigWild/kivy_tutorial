@@ -1,0 +1,65 @@
+#:kivy 1.8.0
+
+<MyButton@Button>:
+# We create a MyButton class that inherits from Button
+	color: [0, 1, 1, 1]
+
+
+<RootWidget>:
+	orientation: 'lr-tb'
+	spacing: 10
+	padding: [20, 0]
+
+	# We can create a canvas on any widget. Here we create one on RootWidget.
+	canvas:
+		Color:
+			rgba: [0.7, 0.2, 0.9, 1]
+		Rectangle:
+			size: self.size # same size as 'RootWidget'
+							# 'self' corresponds to the widget on which the canvas is created
+
+	MyButton:
+		text: 'Button 1'
+		size_hint: [0.33, 0.33]
+
+	Button:
+		text: 'Button 2'
+		size_hint: [0.2, 0.4]
+
+	MyButton:
+		text: 'Button 3'
+		size_hint: [0.4, 0.2]
+
+	Button:
+		text: 'Button 4'
+		size_hint: [0.33, 0.33]
+
+	MyButton:
+		text: 'Button 5'
+		size_hint: [None, 0.2] # You have to put relative sizing (size_hint) to 'None' if you
+		width: 100			   # want to use absolute sizing ('size' or 'width' and/or 'height')
+							   # because the relative sizing has precedecence over the absolute one.
+
+	Widget:
+		size_hint: [0.2, 0.33]
+		
+		canvas:
+			Color:
+				rgba: [0, 1, 1, 1]
+			Rectangle:
+				pos: self.pos
+				size: self.size
+
+	MyButton:
+		text: 'Button 7'
+		size_hint: [0.5, 0.2]
+
+	Button:
+		text: 'Button 8'
+		size_hint: [0.1, None]
+		height: 90
+
+	Button:
+		text: 'Button 9'
+		size_hint: [None, None]
+		size: [60, 40]

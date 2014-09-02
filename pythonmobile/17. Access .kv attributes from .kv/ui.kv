@@ -1,0 +1,35 @@
+#:kivy 1.8.0
+
+<RootWidget>:
+	orientation: 'vertical'
+
+	Label:
+		text: user_input.text
+
+	TextInput:
+		id: user_input
+		hint_text: "Write here..."
+
+	RelativeLayout:
+		Widget:
+			size_hint: [0.5 * slider.value, 0.5 * slider.value]
+			pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+
+			canvas:
+				Color:
+					rgba: [0.4, 0.5, 0.6, 1]
+				Rectangle:
+					size: self.size
+					pos: self.pos
+
+	ProgressBar:
+		size_hint_x: 0.2
+		pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+		max: 2
+		value: slider.value
+
+	Slider:
+		id: slider
+		max: 2
+		value: 1
+

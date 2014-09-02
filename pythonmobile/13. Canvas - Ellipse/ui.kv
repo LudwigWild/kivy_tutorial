@@ -1,0 +1,129 @@
+#:kivy 1.8.0
+
+# The 'set <name> <expression>' instruction creates a variable <name> and assigns
+# it the result of an <expression>.
+
+#:set angle1 120
+#:set angle2 -120
+#:set angle3 240
+
+
+<RootWidget>:
+	cols: 4
+	spacing: 40
+
+	############################## Full Ellipses ##############################
+
+	RelativeLayout:
+		canvas:
+			Color:
+				rgba: [0.2, 0.4, 0.6, 1]
+			Ellipse:
+				size: self.size
+
+	RelativeLayout:
+		canvas:
+			Color:
+				rgba: [0.2, 0.4, 0.6, 1]
+			Ellipse:
+				segments: 7
+				size: self.size
+
+	RelativeLayout:
+		canvas:
+			Color:
+				rgba: [0.2, 0.4, 0.6, 1]
+			Ellipse:
+				segments: 4
+				size: self.size
+
+	RelativeLayout:
+		canvas:
+			Color:
+				rgba: [0.2, 0.4, 0.6, 1]
+			Ellipse:
+				segments: 3
+				size: self.size
+
+	############################## Down-Troncated Ellipses ##############################
+
+	RelativeLayout:
+		canvas:
+			Color:
+				rgba: [0.7, 0.4, 0.2, 1]
+			Ellipse:
+				angle_start: angle1	
+				angle_end: angle2			
+				size: self.size
+
+	RelativeLayout:
+		canvas:
+			Color:
+				rgba: [0.7, 0.4, 0.2, 1]
+			Ellipse:
+				segments: 7
+				angle_start: 120
+				angle_end: -120
+				size: self.size
+
+	RelativeLayout:
+		canvas:
+			Color:
+				rgba: [0.7, 0.4, 0.2, 1]
+			Ellipse:
+				segments: 4
+				angle_start: 240	# angle_star: 120, anglestart: -120
+				angle_end: 480		# is similar to :
+									# angle_start: 240, anglestart: 480
+				size: self.size		
+
+	RelativeLayout:
+		canvas:
+			Color:
+				rgba: [0.7, 0.4, 0.2, 1]
+			Ellipse:
+				segments: 3
+				angle_start: angle1
+				angle_end: angle2
+				size: self.size
+
+	############################## Up-Troncated Ellipses ##############################
+
+	RelativeLayout:
+		canvas:
+			Color:
+				rgba: [0.2, 0.7, 0.4, 1]
+			Ellipse:
+				angle_start: 120
+				angle_end: 240
+				size: self.size
+
+	RelativeLayout:
+		canvas:
+			Color:
+				rgba: [0.2, 0.7, 0.4, 1]
+			Ellipse:
+				segments: 7
+				angle_start: angle1
+				angle_end: angle3
+				size: self.size
+
+	RelativeLayout:
+		canvas:
+			Color:
+				rgba: [0.2, 0.7, 0.4, 1]
+			Ellipse:
+				segments: 4
+				angle_start: angle1
+				angle_end: angle3
+				size: self.size
+
+	RelativeLayout:
+		canvas:
+			Color:
+				rgba: [0.2, 0.7, 0.4, 1]
+			Ellipse:
+				segments: 3
+				angle_start: 120
+				angle_end: 240
+				size: self.size
