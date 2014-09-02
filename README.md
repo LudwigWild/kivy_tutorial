@@ -3,7 +3,7 @@
 - Reworked source codes from different [Kivy](http://kivy.org/) tutorials available on the web.
 - Personal mini-projects aiming to familiarize myself deeper with the framework.
 
-Python **3.4.x** and Kivy **1.8.x** are used.
+Python _3.4.x_ and Kivy _1.8.x_ are used.
 
 ## Tutorials
 - [PythonMobile](http://pythonmobile.blogspot.com/)
