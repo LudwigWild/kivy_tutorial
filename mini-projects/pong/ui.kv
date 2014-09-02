@@ -1,6 +1,6 @@
 #:kivy 1.8.0
 
-################################## classes ##################################
+################################## classes ###################################
 
 <Ball>:
 	size_hint: [None, 0.06]
@@ -24,15 +24,12 @@
 			pos: self.pos
 
 <Score@Label>:
-	text: "0"
 	color: [1, 1, 1, 0.7]
 	font_size: 0.7 * self.height
 
-################################## root widget ##################################
+############################# root widget class ##############################
 
 <PongGame>:
-	score_left: score_left
-	score_right: score_right
 	racket_left: racket_left
 	racket_right: racket_right
 	ball: ball
@@ -45,10 +42,10 @@
 			size_hint: [0.75, 0.15]
 
 			Score:
-				id: score_left
+				text: str(root.left_player_score)
 
 			Score:
-				id: score_right
+				text: str(root.right_player_score)
 
 	AnchorLayout:
 		anchor_x: 'left'

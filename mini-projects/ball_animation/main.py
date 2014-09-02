@@ -22,7 +22,7 @@ class RootWidget(FloatLayout):
 
 	def move_ball(self, *args):
 		"""
-		Move the ball to its t+1 position according to the velocity.
+		Moves the ball to its t+1 position according to its velocity.
 		If the ball hits a wall, change velocity direction and change
 		the background color.
 		"""
@@ -38,14 +38,14 @@ class RootWidget(FloatLayout):
 
 	def randomize_color(self, *args):
 		"""
-		Pick a random color and assign it to the 'randomized_color'
+		Picks a random color and assign it to the 'randomized_color'
 		class attribute.
 		"""
 		self.randomized_color = [random.random() for i in range(3)] + [1]
 
 	def start_ball_animation(self, *args):
 		"""
-		Start the ball animation by calling the move_ball()
+		Starts the ball animation by calling the move_ball()
 		method 60 times/sec.
 		"""
 		Clock.schedule_interval(self.move_ball, 1.0/60)
