@@ -11,7 +11,7 @@ from kivy.properties import NumericProperty
 
 import random
 
-################################## classes ###################################
+################################## Classes ###################################
 
 class Ball(Widget):
 	def __init__(self, **kwargs):
@@ -28,7 +28,7 @@ class Ball(Widget):
 class Racket(Widget):
 	pass
 
-############################# root widget class ##############################
+############################# Root Widget Class ##############################
 
 class PongGame(FloatLayout):
 	left_player_score = NumericProperty(0)
