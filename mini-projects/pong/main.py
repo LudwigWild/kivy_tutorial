@@ -46,7 +46,7 @@ class PongGame(FloatLayout):
 
 	def update_game(self, *args):
 		"""
-		Update the state of the game to t+1 by moving the ball, dealing with
+		Updates the state of the game to t+1 by moving the ball, dealing with
 		collision/trajectories and starting a new game if a player makes a goal.
 		"""
 		self.ball.move()
