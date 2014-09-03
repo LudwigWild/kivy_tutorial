@@ -5,9 +5,9 @@ from kivy.app import App
 from kivy.lang import Builder
 from kivy.uix.floatlayout import FloatLayout
 from kivy.uix.widget import Widget
+from kivy.properties import NumericProperty
 from kivy.clock import Clock
 from kivy.vector import Vector
-from kivy.properties import NumericProperty
 
 import random
 
@@ -41,8 +41,8 @@ class PongGame(FloatLayout):
 		"""
 		self.ball.pos = self.center
 
-		# fixed velocity: 5 ; random direction: 0° <= direction < 360°
-		self.ball.velocity = Vector([5, 0]).rotate(random.randint(0, 360))
+		# velocity is 7 or -7 ; angle is between -75° and 75°
+		self.ball.velocity = Vector([random.choice([-7, 7]), 0]).rotate(random.randint(-75, 75))
 		
 		# wait 5 sec, then call update_game() every 1/60 sec
 		Clock.schedule_once(Clock.schedule_interval(self.update_game, 1.0/60), 5)
