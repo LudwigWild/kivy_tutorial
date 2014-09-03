@@ -35,6 +35,7 @@ class PongGame(FloatLayout):
 		Serves the ball after a 3 sec pause, giving the ball a fixed velocity,
 		and a random direction.
 		"""
+		# center the ball
 		self.ball.center = self.center
 
 		# velocity is 7 or -7 ; angle is between -75° and 75°
@@ -46,7 +47,7 @@ class PongGame(FloatLayout):
 	def on_touch_move(self, touch):
 		"""
 		If a player touches the screen within the left/right half-part of this widget,
-		it will moves the left/right racket to the touch coordinates.
+		it will moves the left/right racket to the y-touch coordinate.
 		"""
 		if touch.x < self.width/2:
 			self.racket_left.center_y = touch.y
