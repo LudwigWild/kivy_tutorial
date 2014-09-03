@@ -47,6 +47,16 @@ class PongGame(FloatLayout):
 		# wait 3 sec, then call update_game() every 1/60 sec
 		Clock.schedule_once(lambda x: Clock.schedule_interval(self.update_game, 1.0/60), 3)
 
+	def on_touch_move(self, touch):
+		"""
+		If a player touch the screen within the left/right half-part of this widget,
+		move the left/right racket to the touch coordinates.
+		"""
+		if touch.x < self.width/2:
+			self.racket_left.center_y = touch.y
+		else:
+			self.racket_right.center_y = touch.y
+
 	def update_game(self, *args):
 		"""
 		Updates the state of the game to t+1 by moving the ball, dealing with
