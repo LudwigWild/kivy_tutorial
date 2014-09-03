@@ -36,7 +36,7 @@ class PongGame(FloatLayout):
 
 	def serve_ball(self, *args):
 		"""
-		Serves the ball after a 5 sec pause, giving the ball a fixed velocity,
+		Serves the ball after a 3 sec pause, giving the ball a fixed velocity,
 		and a random direction.
 		"""
 		self.ball.pos = self.center
@@ -44,8 +44,8 @@ class PongGame(FloatLayout):
 		# velocity is 7 or -7 ; angle is between -75° and 75°
 		self.ball.velocity = Vector([random.choice([-7, 7]), 0]).rotate(random.randint(-75, 75))
 		
-		# wait 5 sec, then call update_game() every 1/60 sec
-		Clock.schedule_once(Clock.schedule_interval(self.update_game, 1.0/60), 5)
+		# wait 3 sec, then call update_game() every 1/60 sec
+		Clock.schedule_once(lambda x: Clock.schedule_interval(self.update_game, 1.0/60), 3)
 
 	def update_game(self, *args):
 		"""
