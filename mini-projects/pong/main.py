@@ -35,7 +35,6 @@ class PongGame(FloatLayout):
 		Serves the ball after a 3 sec pause, giving the ball a fixed velocity,
 		and a random direction.
 		"""
-		# center the ball
 		self.ball.center = self.center
 
 		# velocity is 7 or -7 ; angle is between -75° and 75°
