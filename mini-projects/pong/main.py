@@ -24,10 +24,6 @@ class Ball(Widget):
 		"""
 		self.pos = Vector(self.pos) + Vector(self.velocity)
 
-
-class Racket(Widget):
-	pass
-
 ############################# Root Widget Class ##############################
 
 class PongGame(FloatLayout):
