@@ -3,25 +3,16 @@
 ################################## Classes ###################################
 
 <Ball>:
-	size_hint: [None, 0.06]
-	width: self.height	# width = height = 6% * window_height
+	source: './images/ball.png'
+	color: [0.61, 1, 0.97, 1]
 
-	canvas:
-		Color:
-			rgb: [0, 1, 1]
-		Ellipse:
-			size: self.size
-			pos: self.pos
+	size_hint: [None, 0.05]
+	width: self.height	# width = height = 5% * window_height
 
-<Racket@Widget>:
+
+<Racket@Image>:
 	size_hint: [0.04, 0.25]
 
-	canvas:
-		Color:
-			rgb: [0, 1, 0]
-		Rectangle:
-			size: self.size
-			pos: self.pos
 
 <Score@Label>:
 	color: [1, 1, 1, 0.7]
@@ -53,6 +44,8 @@
 
 		Racket:
 			id: racket_left
+			source: './images/racket_left.png'
+			color: [0.94, 0.33, 0.93, 1]
 
 	AnchorLayout:
 		anchor_x: 'right'
@@ -60,6 +53,8 @@
 
 		Racket:
 			id: racket_right
+			source: './images/racket_right.png'
+			color: [1, 0.73, 0, 1]
 
 	AnchorLayout:
 		anchor_x: 'center'

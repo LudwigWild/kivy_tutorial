@@ -4,7 +4,8 @@ kivy.require('1.8.0')
 from kivy.app import App
 from kivy.lang import Builder
 from kivy.uix.floatlayout import FloatLayout
-from kivy.uix.widget import Widget
+from kivy.uix.image import Image
+from kivy.core.audio import SoundLoader
 from kivy.properties import NumericProperty
 from kivy.clock import Clock
 from kivy.vector import Vector
@@ -13,7 +14,7 @@ import random
 
 ################################## Classes ###################################
 
-class Ball(Widget):
+class Ball(Image):
 	def __init__(self, **kwargs):
 		super(Ball, self).__init__(**kwargs)
 		velocity = [0, 0]
@@ -42,6 +43,7 @@ class PongGame(FloatLayout):
 		
 		# wait 3 sec, then call update_game() every 1/60 sec
 		Clock.schedule_once(lambda x: Clock.schedule_interval(self.update_game, 1.0/60), 3)
+		Clock.schedule_once(lambda x: SoundLoader.load('./sounds/serve_ball.wav').play(), 3)
 
 	def on_touch_move(self, touch):
 		"""
@@ -63,19 +65,23 @@ class PongGame(FloatLayout):
 		# top/bottom walls rebound
 		if self.ball.top > self.top or self.ball.y < 0:
 			self.ball.velocity[1] *= -1
+			SoundLoader.load('./sounds/rebound.wav').play()
 		
 		# player rackets rebound
 		elif self.ball.collide_widget(self.racket_left) or self.ball.collide_widget(self.racket_right):
 			self.ball.velocity[0] *= -1
+			SoundLoader.load('./sounds/rebound.wav').play()
 		
 		# ball went past the left goal
 		elif self.ball.x < 0:
+			SoundLoader.load('./sounds/goal.wav').play()
 			Clock.unschedule(self.update_game)	# Stop updating the game.
 			self.left_player_score += 1			# Update score of the winner.	
 			self.serve_ball()					# Start a new game.
 
 		# ball went past the right goal
 		elif self.ball.right > self.width:
+			SoundLoader.load('./sounds/goal.wav').play()
 			Clock.unschedule(self.update_game)
 			self.right_player_score += 1
 			self.serve_ball()
