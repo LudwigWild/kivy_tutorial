@@ -5,8 +5,9 @@ from kivy.app import App
 from kivy.lang import Builder
 from kivy.uix.floatlayout import FloatLayout
 from kivy.uix.image import Image
+from kivy.uix.popup import Popup
 from kivy.core.audio import SoundLoader
-from kivy.properties import NumericProperty
+from kivy.properties import NumericProperty, StringProperty
 from kivy.clock import Clock
 from kivy.vector import Vector
 
@@ -28,8 +29,12 @@ class Ball(Image):
 ############################# Root Widget Class ##############################
 
 class PongGame(FloatLayout):
-	left_player_score = NumericProperty(0)
-	right_player_score = NumericProperty(0)
+	def __init__(self, **kwargs):
+		super(PongGame, self).__init__(**kwargs)
+		self.max_score = 3
+
+	player_left_score = NumericProperty(0)
+	player_right_score = NumericProperty(0)
 
 	def serve_ball(self, *args):
 		"""
@@ -66,26 +71,51 @@ class PongGame(FloatLayout):
 		if self.ball.top > self.top or self.ball.y < 0:
 			self.ball.velocity[1] *= -1
 			SoundLoader.load('./sounds/rebound.wav').play()
-		
+
 		# player rackets rebound
 		elif self.ball.collide_widget(self.racket_left) or self.ball.collide_widget(self.racket_right):
 			self.ball.velocity[0] *= -1
 			SoundLoader.load('./sounds/rebound.wav').play()
-		
+
 		# ball went past the left goal
 		elif self.ball.x < 0:
 			SoundLoader.load('./sounds/goal.wav').play()
 			Clock.unschedule(self.update_game)	# Stop updating the game.
-			self.left_player_score += 1			# Update score of the winner.	
-			self.serve_ball()					# Start a new game.
+			self.player_left_score += 1			# Update score of the winner.	
+
+			if self.player_left_score == self.max_score:
+				EndGamePopup().open("player_left", self.racket_left.color)
+			else:
+				self.serve_ball()	# start a new game
 
 		# ball went past the right goal
 		elif self.ball.right > self.width:
 			SoundLoader.load('./sounds/goal.wav').play()
 			Clock.unschedule(self.update_game)
-			self.right_player_score += 1
-			self.serve_ball()
-		
+			self.player_right_score += 1
+
+			if self.player_right_score == self.max_score:
+				EndGamePopup().open("player_right", self.racket_right.color)
+			else:
+				self.serve_ball()
+
+############################### EndGame Popup ################################
+
+class EndGamePopup(Popup):
+	def open(self, winner, winner_color, *args):
+		"""
+		Opens a popup showing the winning player, and give the choice to either:
+		play again, go back to the menu, or quit the game.
+		"""
+		super(EndGamePopup, self).open()
+		self.popup_label.color = winner_color
+
+		if winner == "player_left":
+			self.popup_label.text = "Left Player WON !"
+		elif winner == "player_right":
+			self.popup_label.text = "Right Player WON !"
+
+##############################################################################
 
 class KivyApp(App):
 	def build(self):
@@ -95,8 +125,6 @@ class KivyApp(App):
 		pong = PongGame()
 		pong.serve_ball()
 		return pong
-
-##############################################################################
 
 if __name__ == '__main__':
 	KivyApp().run()
