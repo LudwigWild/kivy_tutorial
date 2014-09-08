@@ -104,7 +104,7 @@ class PongGame(FloatLayout):
 class EndGamePopup(Popup):
 	def open(self, winner, winner_color, *args):
 		"""
-		Opens a popup showing the winning player, and give the choice to either:
+		Opens a popup showing the winning player, and gives the choice to either:
 		play again, go back to the menu, or quit the game.
 		"""
 		super(EndGamePopup, self).open()
