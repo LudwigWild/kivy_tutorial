@@ -80,13 +80,13 @@ class PongGame(FloatLayout):
 		# ball went past the left goal
 		elif self.ball.x < 0:
 			SoundLoader.load('./sounds/goal.wav').play()
-			Clock.unschedule(self.update_game)	# Stop updating the game.
-			self.player_left_score += 1			# Update score of the winner.	
+			Clock.unschedule(self.update_game) # stop updating the game
+			self.player_left_score += 1 # update score of the winner
 
 			if self.player_left_score == self.max_score:
 				EndGamePopup().open("player_left", self.racket_left.color)
 			else:
-				self.serve_ball()	# start a new game
+				self.serve_ball() # start a new game
 
 		# ball went past the right goal
 		elif self.ball.right > self.width:
