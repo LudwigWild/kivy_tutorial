@@ -50,6 +50,14 @@ class PongGame(FloatLayout):
 		Clock.schedule_once(lambda x: Clock.schedule_interval(self.update_game, 1.0/60), 3)
 		Clock.schedule_once(lambda x: SoundLoader.load('./sounds/serve_ball.wav').play(), 3)
 
+	def new_game(self, *args):
+		"""
+		Start a new game by clearing the scores and serving the ball.
+		"""
+		self.player_left_score = 0
+		self.player_right_score = 0
+		self.serve_ball()
+
 	def on_touch_move(self, touch):
 		"""
 		If a player touches the screen within the left/right half-part of this widget,
