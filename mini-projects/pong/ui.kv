@@ -85,11 +85,18 @@
 
 			Button:
 				text: "Play Again"
+
+				# close popup and start a new game
 				on_press: root.dismiss(); app.root.new_game()
 
 			Button:
 				text: "Back to Menu"
 
+				# go to menu screen
+				on_press:
+
 			Button:
 				text: "Quit Game"
-				on_press: app.stop() # stop kivy app
+
+				# stop kivy app
+				on_press: app.stop()
