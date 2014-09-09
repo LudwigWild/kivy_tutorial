@@ -123,7 +123,7 @@ class EndGamePopup(Popup):
 			self.popup_label.text = "Left Player WON !"
 		else:
 			self.popup_label.color = app.ponggame.racket_right.color
-			self.popup_label.text = "Right Player WON !"""
+			self.popup_label.text = "Right Player WON !"
 
 ##############################################################################
 
