@@ -1,4 +1,5 @@
-# kivy_tutorial
+Kivy Tutorial
+=============
 
 - Reworked source codes from different [Kivy](http://kivy.org/) tutorials available on the web.
 - Personal mini-projects aiming to familiarize myself deeper with the framework.
